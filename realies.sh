@@ -40,8 +40,10 @@ clear
 # When you're ready to run this for real, change the value of the file being written to to /etc/hostapd/hostapd.conf
 
 echo "Creating hostapd default configuration."
+read -p "Please enter your desired BSSID: " bssid
+read -p "Please enter your desired passphrase: " pass
 
-sudo printf "ctrl_interface=/var/run/hostapd\nctrl_interface_group=0\n# Hardware Configuration\ninterface=wlan0\nssid=PatrolMech\nchannel=6\ndriver=nl80211\nieee80211n=1\nhw_mode=g\n# WPA and WPA2 Configuration\nwpa=3\nwpa_passphrase=patroNETWORK001@)!^\nwpa_key_mgmt=WPA-PSK\nwpa_pairwise=TKIP\nrsn_pairwise=CCMP\nauth_algs=1\n" > /etc/hostapd/hostapd.conf
+sudo printf "ctrl_interface=/var/run/hostapd\nctrl_interface_group=0\n# Hardware Configuration\ninterface=wlan0\nssid=$bssid\nchannel=6\ndriver=nl80211\nieee80211n=1\nhw_mode=g\n# WPA and WPA2 Configuration\nwpa=3\nwpa_passphrase=$pass\nwpa_key_mgmt=WPA-PSK\nwpa_pairwise=TKIP\nrsn_pairwise=CCMP\nauth_algs=1\n" > /etc/hostapd/hostapd.conf
 
 # read -p "Press enter to continue."
 
