@@ -73,7 +73,7 @@ clear
 
 echo "Creating /etc/dhcp/dhcpd.conf and populating."
 
-sudo printf "ddns-update-style none;\ndefault-lease-time 600;\nmax-lease-time 7200;\nauthoritative;\nsubnet 10.10.0.0 netmask 255.255.255.0 {\n range 10.10.0.2 10.10.0.16;\n# option domain-name-servers 8.8.8.8, 8.8.4.4;\n option routers 10.10.0.1;\n interface wlan0;\n}" > /etc/dhcp/dhcpd.conf
+sudo printf "ddns-update-style none;\ndefault-lease-time 600;\nmax-lease-time 7200;\nauthoritative;\nsubnet 10.10.0.0 netmask 255.255.255.0 {\n range 10.10.0.2 10.10.0.16;\n option domain-name-servers 8.8.8.8, 8.8.4.4;\n option routers 10.10.0.1;\n interface wlan0;\n}" > /etc/dhcp/dhcpd.conf
 
 # read -p "Press enter to continue."
 
